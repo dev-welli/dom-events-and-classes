@@ -5,6 +5,8 @@ document.addEventListener('DOMContentLoaded', start)
 
 function start () {
   bindEventListeners(document.getElementsByClassName('board')[0].children)
+  //console.log(test)
+  //debugger
 }
 
 function bindEventListeners (dots) {
@@ -43,7 +45,41 @@ function updateCounts () {
   }
   
   // WRITE CODE HERE TO COUNT BLUE, GREEN, AND INVISIBLE DOTS
+  var dots = document.getElementsByClassName('board')[0].children
+  bindEventListeners(dots)
+  
 
+  for (var i = 0; i < dots.length; i++){
+    //console.log(i)
+    if (dots[i].classList.contains('blue')){
+      totals.blue++;
+    }
+    if (dots[i].classList.contains('green')){
+      totals.green++;
+    }
+    if (dots[i].classList.contains('invisible')){
+      totals.invisible++;
+    }
+  }
+//debugger
+ /* 
+  var bluedots = document.getElementsByClassName('blue')
+  for (var i = 0; i < bluedots.length; i++){
+    totals.blue++;
+  }
+
+
+  var greendots = document.getElementsByClassName('green')
+  for (var i = 0; i < greendots.length; i++){
+    totals.green++;
+  }
+
+  var invisibledots = document.getElementsByClassName('invisible')
+  for (var i = 0; i < invisibledots.length; i++){
+    totals.invisible++;
+  }
+  */
+  
   // Once you've done the counting, this function will update the display
   displayTotals(totals)
 }
@@ -53,3 +89,5 @@ function displayTotals (totals) {
     document.getElementById(key + '-total').innerHTML = totals[key]
   }
 }
+
+
